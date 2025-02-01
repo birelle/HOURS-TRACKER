@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">HRS Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('record_hours') }}">Record Hours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('view_hours') }}">View Hours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Welcome</h1>
+        <p>As a teacher, you can track your teaching hours and manage your classes effectively.</p>
+        
+        <h3>Hours Overview</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Total Hours</th>
+                    <th>Hours Taught</th>
+                    <th>Hours Left to Teach</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ total_hours }}</td>
+                    <td>{{ hours_taught }}</td>
+                    <td>{{ hours_left }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Manage Your Classes and Subjects</h3>
+        <form>
+            <div class="form-group">
+                <label for="subject">Enter Your Subjects:</label>
+                <input type="text" class="form-control" id="subject" placeholder="Enter subjects" required>
+            </div>
+            <div class="form-group">
+                <label for="class">Enter the Class You Teach:</label>
+                <input type="text" class="form-control" id="class" placeholder="Enter class name" required>
+            </div>
+            <div class="form-group">
+                <label for="subject-dropdown">Subjects Teaching:</label>
+                <select class="form-control" id="subject-dropdown">
+                    <option>Math</option>
+                    <option>Science</option>
+                    <option>English</option>
+                    <option>History</option>
+                    <option>Art</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="class-dropdown">Classes:</label>
+                <select class="form-control" id="class-dropdown">
+                    <option>Class 1</option>
+                    <option>Class 2</option>
+                    <option>Class 3</option>
+                    <option>Class 4</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
